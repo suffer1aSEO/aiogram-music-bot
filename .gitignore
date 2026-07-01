@@ -1,1 +1,17 @@
+# Secrets
 .env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Downloaded audio / temp
+*.mp3
