@@ -1,8 +1,10 @@
-<h1 align="center">🎵 aiogram-music-bot</h1>
+<p align="center">
+  <img src="assets/banner.png" alt="aiogram-music-bot — Telegram bot that finds & downloads music" width="100%">
+</p>
 
 <p align="center">
   <b>Telegram-бот для поиска и скачивания музыки — просто пришли название трека.</b><br>
-  <b>A Telegram bot that finds & downloads music — just send a track name.</b>
+  <b>A Telegram bot that finds &amp; downloads music — just send a track name.</b>
 </p>
 
 <p align="center">
