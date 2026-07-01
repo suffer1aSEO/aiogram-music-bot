@@ -36,6 +36,8 @@
 ### ✨ Возможности
 - 🔎 **Поиск по названию** — просто отправь название трека.
 - 🎧 **Отправка аудио** — трек приходит как проигрываемое аудио в Telegram.
+- 🎛 **Приятный интерфейс** — приветственный баннер, кнопки-меню и живые статусы поиска (Ищу → Скачиваю → Готово).
+- 🌐 **Поддержка прокси** — `PROXY_URL` в `.env` (http/https/socks5), чтобы бот работал и на сервере.
 - 🛟 **Умные фолбэки** — если не удалось отправить аудио, бот пришлёт файл документом, а если и это
   не вышло — inline-кнопку с прямой ссылкой на скачивание.
 - ⚙️ **FSM** — диалог поиска на конечном автомате aiogram (состояние ожидания названия).
@@ -82,6 +84,28 @@ python main.py
 | `/start` | Приветствие и краткая справка |
 | `/poisk` | Начать поиск — далее просто пришли название трека |
 
+### 🚀 Деплой на сервер
+
+**Docker (проще всего):**
+```bash
+git clone https://github.com/suffer1aSEO/aiogram-music-bot.git
+cd aiogram-music-bot
+cp .env.example .env          # впиши BOT_TOKEN (и PROXY_URL, если нужен)
+docker compose up -d --build
+docker compose logs -f        # смотреть логи
+```
+
+**systemd (без Docker):**
+```bash
+sudo git clone https://github.com/suffer1aSEO/aiogram-music-bot.git /opt/aiogram-music-bot
+cd /opt/aiogram-music-bot
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+cp .env.example .env          # впиши BOT_TOKEN
+sudo cp deploy/music-bot.service /etc/systemd/system/
+sudo systemctl enable --now music-bot
+journalctl -u music-bot -f    # смотреть логи
+```
+
 ### ⚠️ Важно про сервер (ошибка 403)
 Сайт-источник блокирует запросы с IP дата-центров, поэтому **лучше запускать бота с домашнего
 ПК**. Если разворачиваешь на VPS и ловишь `403` — используй **прокси** с «жилым» (residential) IP.
@@ -101,6 +125,8 @@ the `.mp3` and sends it back as a playable audio file — no websites, no ads, a
 ### ✨ Features
 - 🔎 **Search by name** — just send a track title.
 - 🎧 **Audio delivery** — the track arrives as playable Telegram audio.
+- 🎛 **Polished UX** — welcome banner, inline menu buttons and live status (Searching → Downloading → Done).
+- 🌐 **Proxy support** — `PROXY_URL` in `.env` (http/https/socks5) so it also works on a server.
 - 🛟 **Smart fallbacks** — if audio fails it sends the file as a document; if that fails too, an
   inline button with a direct download link.
 - ⚙️ **FSM** — the search dialog uses aiogram's finite-state machine.
@@ -146,6 +172,28 @@ Open the bot in Telegram and hit **/start**.
 |----------|--------------|
 | `/start` | Greeting and a short hint |
 | `/poisk` | Start a search — then just send the track title |
+
+### 🚀 Deploy
+
+**Docker (easiest):**
+```bash
+git clone https://github.com/suffer1aSEO/aiogram-music-bot.git
+cd aiogram-music-bot
+cp .env.example .env          # set BOT_TOKEN (and PROXY_URL if needed)
+docker compose up -d --build
+docker compose logs -f
+```
+
+**systemd (no Docker):**
+```bash
+sudo git clone https://github.com/suffer1aSEO/aiogram-music-bot.git /opt/aiogram-music-bot
+cd /opt/aiogram-music-bot
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+cp .env.example .env          # set BOT_TOKEN
+sudo cp deploy/music-bot.service /etc/systemd/system/
+sudo systemctl enable --now music-bot
+journalctl -u music-bot -f
+```
 
 ### ⚠️ Server note (HTTP 403)
 The source site blocks datacenter IPs, so **running from a home PC works best**. On a VPS you may

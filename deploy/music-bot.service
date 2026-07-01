@@ -1,0 +1,15 @@
+[Unit]
+Description=aiogram music bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/aiogram-music-bot
+EnvironmentFile=/opt/aiogram-music-bot/.env
+ExecStart=/opt/aiogram-music-bot/.venv/bin/python main.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+services:
+  bot:
+    build: .
+    container_name: music-bot
+    restart: unless-stopped
+    # Reads BOT_TOKEN (and optional PROXY_URL) from your .env file.
+    env_file: .env
