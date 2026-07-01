@@ -15,6 +15,13 @@
   🌐 <a href="#русский">Русский</a> · <a href="#english">English</a>
 </p>
 
+<p align="center">
+  <img src="assets/preview-1.png" width="270" alt="Поиск трека: /start и /poisk">
+  &nbsp;&nbsp;
+  <img src="assets/preview-2.png" width="270" alt="Трек найден и отправлен как аудио">
+</p>
+<p align="center"><sub>Поиск трека и результат — бот присылает найденное как аудио · Search flow &amp; the track delivered as audio</sub></p>
+
 ---
 
 ## Русский
